@@ -51,6 +51,10 @@ Some tools I use on a daily basis:
 - I use [Mark Text](https://github.com/marktext/marktext) to edit this document
 * [Visual Studio](https://visualstudio.microsoft.com/) has loads of plugins that can make your life easier
 
+### Diagram
+
+* [excalidraw](https://excalidraw.com/)
+
 ### Configuration (WIP)
 
 * .zshrc
