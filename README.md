@@ -26,13 +26,15 @@ Think of these questions before you are going to ask for PR review or when you a
 
 ## Notes
 
-### Design
+### Design and Deployment Principles
 
-#### Web Design
+* Make functions as small as possible
+
+### Web Design
 
 * [Accessibility]([What is accessibility? - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility))
 
-#### UI Design
+### UI Design
 
 #### [Visual Consistency](https://uxpin.medium.com/web-ui-design-for-the-human-eye-principles-of-visual-consistency-part-2-7b5d8b647602https://uxpin.medium.com/web-ui-design-for-the-human-eye-principles-of-visual-consistency-part-2-7b5d8b647602)
 
@@ -41,6 +43,10 @@ Think of these questions before you are going to ask for PR review or when you a
 2. UI elements
 
 3. Color
+
+#### Tips
+
+* Thinking about ****how the UI should look at any given moment****, rather than how to change it over time, eliminates a whole class of bugs. [link](https://reactjs.org/docs/rendering-elements.html)
 
 ---
 
