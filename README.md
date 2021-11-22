@@ -26,6 +26,10 @@ Think of these questions before you are going to ask for PR review or when you a
 
 ## Notes
 
+### Programming Language
+
+* [JavaScript Notes](./notes/javascript.md)
+
 ### Design and Deployment Principles
 
 * Make functions as small as possible
