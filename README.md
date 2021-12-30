@@ -68,3 +68,11 @@ Some tools I use on a daily basis:
 ### Configuration (WIP)
 
 * .zshrc
+
+---
+
+## Resources
+
+#### Online Courses
+
+* Frontend Master - Javascript: The New Hard Parts (Highly recommended!!!)
