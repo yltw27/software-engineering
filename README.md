@@ -38,6 +38,8 @@ Think of these questions before you are going to ask for PR review or when you a
 
 * [Accessibility]([What is accessibility? - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility))
 
+* [PWAs](./notes/progressive-web-apps.md)
+
 ### UI Design
 
 #### [Visual Consistency](https://uxpin.medium.com/web-ui-design-for-the-human-eye-principles-of-visual-consistency-part-2-7b5d8b647602https://uxpin.medium.com/web-ui-design-for-the-human-eye-principles-of-visual-consistency-part-2-7b5d8b647602)
