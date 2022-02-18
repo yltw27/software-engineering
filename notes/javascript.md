@@ -75,6 +75,25 @@ We use web browser features to achieve asynchronous
 
 ### Iterators
 
+```JavaScript
+function createFunction(array) {
+  let i = 0;
 
+  function inner() {
+    const element = array[i];
+    i++;
+
+    return element;
+  }
+
+  return inner;
+}
+
+const returnNextElement = createFunction([4, 5, 6]);
+const element1 = returnNextElement();
+const element2 = returnNextElement();
+```
+
+In this example, when we return the function and store it in memory as the value of `returnNextElement`, it takes a **backpack of persistent data** (`array` and `i`) with it
 
 ### Generators
