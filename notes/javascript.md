@@ -96,6 +96,14 @@ const element1 = returnNextElement();
 const element2 = returnNextElement();
 ```
 
-In this example, when we return the function and store it in memory as the value of `returnNextElement`, it takes a **backpack of persistent data** (`array` and `i`) with it
+In this example, when we return the function and store it in memory as the value of `returnNextElement`, it takes a **backpack of persistent data** (`array` and `i`) with it. Every time we call `returnNextElement`, it returns us the next element, this kind of functions we call it `Iterators`.
+
+### The bond
+
+* When the function `inner` is defined, it gets a **bond** to the surrounding Local Memory in which is has been defined. When we return out inner, that surrounding live data is returned too within a hidden property called `[[scope]]`.
+
+* When we call `returnNextElement` and don't find the variables we need (in this case, `array` and `i`) in the immediate execution context, we look into the backpack of persistent live data.
+
+* The backpack is officialy known as `C.O.V.E` (Closed Over Variable Environment), `closure`, or in a fancy way, `P.L.S.R.D` (Persistent Lexical Scope Reference Data).  The only way to get a backpack is to return a function from where is's born.
 
 ## Generators
