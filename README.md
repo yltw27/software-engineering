@@ -4,7 +4,7 @@ A notebook containing everything I learned or found useful as a software enginee
 
 ---
 
-## Make a plan
+## I. Make a plan
 
 - This roadmap [Learn to become a modern backend developer](https://roadmap.sh/backend) gives you a basic idea of what you should know/learn as a backend engineer. They also provide videos and roadmaps for frontend and DevOps.
 
@@ -12,7 +12,7 @@ A notebook containing everything I learned or found useful as a software enginee
 
 ---
 
-## Mindset
+## II. Mindset
 
 ### PR Review
 
@@ -22,23 +22,29 @@ Think of these questions before you are going to ask for PR review or when you a
 - What could happen if ... goes wrong?
 - Refer to this list of [system quality attributes](https://en.wikipedia.org/wiki/List_of_system_quality_attributes) and think of what the PR creator might not think of
 
--------
+---
 
-## Notes
+## III. Keep Learning
+
+Following the roadmap
 
 ### Programming Language
 
-* [JavaScript Notes](./notes/javascript.md)
+- [JavaScript](./notes/javascript.md)
+
+### Web Security Knowledge
+
+- [Hacker 101](./notes.hacker101.md)
 
 ### Design and Deployment Principles
 
-* Make functions as small as possible
+- Make functions as small as possible
 
 ### Web Design
 
-* [Accessibility]([What is accessibility? - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility))
+- [What is accessibility? - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility)
 
-* [PWAs](./notes/progressive-web-apps.md)
+- [PWAs](./notes/progressive-web-apps.md)
 
 ### UI Design
 
@@ -52,29 +58,36 @@ Think of these questions before you are going to ask for PR review or when you a
 
 #### Tips
 
-* Thinking about ****how the UI should look at any given moment****, rather than how to change it over time, eliminates a whole class of bugs. [link](https://reactjs.org/docs/rendering-elements.html)
+- Thinking about ****how the UI should look at any given moment****, rather than how to change it over time, eliminates a whole class of bugs. [link](https://reactjs.org/docs/rendering-elements.html)
 
 ---
 
-## Tools
+## IV. Tools
 
 Some tools I use on a daily basis:
 
-- I use [Mark Text](https://github.com/marktext/marktext) to edit this document
-* [Visual Studio](https://visualstudio.microsoft.com/) has loads of plugins that can make your life easier
+- I use ~~[Mark Text](https://github.com/marktext/marktext)~~ a Visual Studio extension named **Markdown All in One** to edit this document
+
+- [Visual Studio](https://visualstudio.microsoft.com/) has loads of plugins that can make your life easier
 
 ### Diagram
 
-* [excalidraw](https://excalidraw.com/)
+- [excalidraw](https://excalidraw.com/)
+
+- Figma
 
 ### Configuration (WIP)
 
-* .zshrc
+- .zshrc
 
 ---
 
-## Resources
+## V. Resources
 
-#### Online Courses
+### Online Courses
 
-* Frontend Master - Javascript: The New Hard Parts (Highly recommended!!!)
+Frontend Master - Javascript: The New Hard Parts (Highly recommended!!!)
+
+### Tutorials
+
+[Hacker101](https://www.hacker101.com/start-here)
