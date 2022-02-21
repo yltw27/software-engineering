@@ -1,5 +1,10 @@
 # JavaScript
 
+## Resources
+
+- [Frontend Master: JavaScript, The New Hard Parts by Will Sentance](https://frontendmasters.com/courses/javascript-new-hard-parts/)
+- [Some exercises from the course](http://csbin.io/)
+
 ## To-Dos
 
 - [ ] Complete the course
@@ -9,7 +14,8 @@
 ---
 
 - [this](https://www.freecodecamp.org/news/the-complete-guide-to-this-in-javascript/) - The `this` reference inside functions can ****be bound to**** different objects depending on where the function is being called.
-- JavaScript is **single threaded (one command executing at a time) and has a synchronous** execution model (each line is executed in order the code appears)
+
+- JavaScript is **single threaded (one command executing at a time) and has a synchronous** execution model (each line is executed in order the code appears).
 
 ## Asynchronous
 
@@ -59,11 +65,17 @@ We use web browser features to achieve asynchronous
   ```
 
   1. Declare a function named display in memory
+
   2. Declare a function named printHello in memory
+
   3. Declare a function named blockFor300ms in memory
+
   4. Execute `setTimeout(func, 0)` , and it calls a web browser feature "Timer"
+
   5. On completion, `printHello` is put back to the **callback queue**. As the **call stack** is not empty, **event loop** won't move printHello from callback queue to call stack
+
   6. Declare a constant variable named futureData (the value is undefined at the moment) in memory
+
   7. Execute `futureDate('...')`, which
 
       a. in Javascript, returns an object (will be stored in memory as the value of futureData
@@ -78,9 +90,13 @@ We use web browser features to achieve asynchronous
       b. in web browser, sets up a web browser feature "xhr", which sends a request to Twitter server. On completion, it assigns the returned value to the value on object futureData
 
   8. Store `display` function in the onFulfilment array in object futureData
+
   9. Execute `blockFor300ms`, which enters the call stack and sits there for 300ms. Meanwhile, Twilio returns the data and the display function is put to the **microtask queue** (As it comes from the new fasade function which does 2 things in JavaScript and web browser)
+
   10. Execute `console.log` and lot out "Me first!"
+
   11. Event loop prioritizes microtask queue over callback queue, so it moves display from microtask queue to callback stack and the display function gets executed (log out the value returned from Twitter)
+
   12. As microtask queue and call stack are empty, the printHello function is moved from callback queue to call stack (log out "Hello")
 
 ## Iterators
@@ -115,3 +131,26 @@ In this example, when we return the function and store it in memory as the value
 - The backpack is officialy known as `C.O.V.E` (Closed Over Variable Environment), `closure`, or in a fancy way, `P.L.S.R.D` (Persistent Lexical Scope Reference Data).  The only way to get a backpack is to return a function from where is's born.
 
 ## Generators
+
+```JavaScript
+function *createFlow() {
+  const num = 10;
+  const newNum = yield num;
+  yield 5 + newNum;
+  yield 6;
+}
+
+const returnElement = createFlow();
+const element1 = returnElement.next();  // 10
+const element2 = returnElement.next(2);  // 7
+```
+
+1. We define a generator in JavaScript using asterisk (*)
+
+2. Calling `createFlow` gives us a **generator object** with a property `next`
+
+3. `returnElement.next()` is a command to begin the execution context of `createFlow`
+
+4. `yield` suspeds the execution context and returns 10, we then store 10 as the value of element1. At this point, `newNum` is undefined
+
+5. `returnElement.next(2)` make us go back in the execution context of `createFlow`. As we pass 2 here, 2 becomes the valuated result of the yield expression, which is the value of `newNum` (Amazing!)
