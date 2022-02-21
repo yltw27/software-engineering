@@ -1,4 +1,4 @@
-# software-engineering
+# Software Engineering
 
 A notebook containing everything I learned or found useful as a software engineer
 
@@ -13,6 +13,14 @@ A notebook containing everything I learned or found useful as a software enginee
 ---
 
 ## II. Mindset
+
+- Keep improving and be confident about your problem-solving skills - You should be confident that you can solve a problem even if you don't know the root cause, techniques, or what tools to use yet.
+
+- There are endless issues to be solved, tasks to be completed. Be nice to yourself. Know when to rest and how to prioritize things.
+
+### Meetings
+
+- Always interrupt the meeting when you cannot follow and say something like "`Sorry. I'm not following. Could we summarize what we've discussed so far?`" When you are not following but keep pretending you understand everything, you are wasting your time. Remember, probably some people in the meeting are thinking about the same thing and they will appreciate that you speak up.
 
 ### PR Review
 
@@ -70,15 +78,9 @@ Some tools I use on a daily basis:
 
 - [Visual Studio](https://visualstudio.microsoft.com/) has loads of plugins that can make your life easier
 
-### Diagram
+- Figma for diagrams
 
-- [excalidraw](https://excalidraw.com/)
-
-- Figma
-
-### Configuration (WIP)
-
-- .zshrc
+- Google Calendar to schedule everything and set up reminder for note review (weekly)
 
 ---
 
