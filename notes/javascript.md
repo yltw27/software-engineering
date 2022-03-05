@@ -5,12 +5,6 @@
 - [Frontend Master: JavaScript, The New Hard Parts by Will Sentance](https://frontendmasters.com/courses/javascript-new-hard-parts/)
 - [Some exercises from the course](http://csbin.io/)
 
-## To-Dos
-
-- [ ] Complete the course
-- [ ] Review (Try to use pen and paper to explain to myself)
-- [ ] Set up reminder for weekly review
-
 ---
 
 - [this](https://www.freecodecamp.org/news/the-complete-guide-to-this-in-javascript/) - The `this` reference inside functions can ****be bound to**** different objects depending on where the function is being called.
@@ -154,3 +148,67 @@ const element2 = returnElement.next(2);  // 7
 4. `yield` suspeds the execution context and returns 10, we then store 10 as the value of element1. At this point, `newNum` is undefined
 
 5. `returnElement.next(2)` make us go back in the execution context of `createFlow`. As we pass 2 here, 2 becomes the valuated result of the yield expression, which is the value of `newNum` (Amazing!)
+
+`returnNextElement` is a special object (a Generator object) that when its next method is run, it starts (or continues) running createFlow until it hits yield and returns out the value being "yielded"
+
+## Async Generators
+
+```jsx
+function doWhenDataReceived(value) {
+	returnNextElement.next(value);
+}
+
+function *createFlow() {
+	const data = yield fetch("...");
+	console.log(data);
+}
+
+const returnNextElement = createFlow();  // { next: fn } fn is bound to createFlow
+const futureData = returnNextElement.next();
+
+futureData.then(doWhenDataReceived);
+```
+
+- As `fetch` is a facade function, it
+    1. returns a promise object like below immediately which gets assigned to `futureData` because of yield
+
+        ```json
+        {
+          value: <placeholder>,
+          onFulfilment: []
+          // onFulfilment will be triggered when value is returned
+        }
+        ```
+    2. and triggers a web browser feature `xhr`. When it’s completed, the returned data is assigned to `future.value`
+
+- `.then()` registered a function `doWhenDataReceived` to the onFulfilment array. When the website returns the data, `doWhenDataReceived` will be added to microtask queue, then be moved to call stack by **event loop** and finally gets executed
+
+- When `doWhenReceived` gets executed, we go back to the execution context of `createFlow` and pass the return data (e.g. “Hi”) to `data`, which is logged out
+
+## Async/await
+
+Async/await simplifies all this and finally fixes the inversion of control problem of callbacks
+
+```jsx
+async function createFlow() {
+	console.log("Me first");
+	const data = await fetch("...twitter...");
+	console.log(data);
+}
+
+createFlow();
+
+console.log("Me second");
+```
+
+1. Create a function named `createFlow`
+2. Trigger `createFlow` and enter its execution context **immediately**
+3. Log out "Me first"
+4. Declare a constant variable data with value `undefined`
+5. Trigger fetch which returns a promise object immediately and triggers `xhr` in web browser
+6. `await` throws us out of the execution context of `createFlow`
+7. Log out "Me second"
+8. Twitter returns the data and `createFlow` is executed continually (the continuation is triggered)
+9. Log out the data returned from Twitter (”Hi”)
+
+Note: The `await` behaves similarly to `yield`
