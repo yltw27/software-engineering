@@ -38,7 +38,8 @@ Following the roadmap
 
 ### Programming Language
 
-- [JavaScript](./notes/javascript.md)
+- [JavaScript, The New Hard Parts](./notes/JavaScript/the-new-hard-parts.md)
+- [Functional Programming](./notes/JavaScript/functional-programming.md)
 
 ### Web Security Knowledge
 
