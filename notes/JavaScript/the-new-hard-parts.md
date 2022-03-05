@@ -1,4 +1,4 @@
-# JavaScript
+# JavaScript, The New Hard Parts
 
 ## Resources
 
