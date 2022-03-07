@@ -41,6 +41,10 @@ Following the roadmap
 - [JavaScript, The New Hard Parts](./notes/JavaScript/the-new-hard-parts.md)
 - [Functional Programming](./notes/JavaScript/functional-programming.md)
 
+### Developer 101
+
+- Learn how to use Chrome DevTools [Note](./notes/developer101.md)
+
 ### Web Security Knowledge
 
 - [Hacker 101](./notes.hacker101.md)
