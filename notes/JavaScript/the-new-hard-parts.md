@@ -1,22 +1,22 @@
 # JavaScript, The New Hard Parts
 
-## Resources
+Based on [Frontend Master: JavaScript, The New Hard Parts by Will Sentance](https://frontendmasters.com/courses/javascript-new-hard-parts/)
 
-- [Frontend Master: JavaScript, The New Hard Parts by Will Sentance](https://frontendmasters.com/courses/javascript-new-hard-parts/)
-- [Some exercises from the course](http://csbin.io/)
-
----
+### Basics
 
 - [this](https://www.freecodecamp.org/news/the-complete-guide-to-this-in-javascript/) - The `this` reference inside functions can ****be bound to**** different objects depending on where the function is being called.
 
-- JavaScript is **single threaded (one command executing at a time) and has a synchronous** execution model (each line is executed in order the code appears).
+- JavaScript is
+  - **single threaded** (one command executing at a time) and
+  - has a **synchronous** execution model (each line is executed in order the code appears).
 
 ## Asynchronous
 
-We use web browser features to achieve asynchronous
+**We use web browser features to achieve asynchronous**
 
 - **setTimeout** (a fasade function for web browser feature) returns a web browser feature called Timer. When the time is up, web browser will add the function to callback queue (a.k.a. task queue)
-- **Event Loop: Functions in callback queue are allowed to go back to JavaScript when the call stack is empty and all the global code is finished running**
+
+- **Event Loop**: Functions in callback queue are allowed to go back to JavaScript when the call stack is empty and all the global code is finished running
 
   ![Event Loop](../images/event-loop.jpeg)
 
@@ -40,9 +40,9 @@ We use web browser features to achieve asynchronous
 
 - For the second type of fasade functions, JavaScript provides another queue called `microtask queue` (a.k.a. `job queue`) to store the functions returned from web browser feature. Event loop moves functions in this microtask queue to callback stack before it moves the functions in callback queue. i.e. microtask queue is for fasade functions that return promises
 
-- Asynchronous JavaScript is the backbone of the modern web - letting us build fast "non-blocking" applications. Promises, Web APIs, the callback & microtask queues and event loop allow us to defer our actions until the work (an API request, time etc) is completed and continue running our code line by line in the meanwhile
+- Asynchronous JavaScript is the backbone of the modern web - letting us build fast "non-blocking" applications. Promises, Web APIs, the callback & microtask queues and event loop allow us to defer our actions until the work (an API request, time etc.) is completed and continue running our code line by line in the meanwhile
 
-- A good example (TODO: animation)
+- A good example
 
   ```JavaScript
   function display(data){ console.log(data) }
@@ -211,4 +211,7 @@ console.log("Me second");
 8. Twitter returns the data and `createFlow` is executed continually (the continuation is triggered)
 9. Log out the data returned from Twitter (”Hi”)
 
-Note: The `await` behaves similarly to `yield`
+Note:
+- The `await` behaves similarly to `yield`
+- The word `async` before a function means one simple thing: a function always returns a promise.
+- `await` literally suspends the function execution until the promise settles, and then resumes it with the promise result. That doesn’t cost any CPU resources, because the JavaScript engine can do other jobs in the meantime: execute other scripts, handle events, etc.
