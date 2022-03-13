@@ -61,8 +61,6 @@ Following the roadmap
 
 - Thinking about **how the UI should look at any given moment**, rather than how to change it over time, eliminates a whole class of bugs. [link](https://reactjs.org/docs/rendering-elements.html)
 
----
-
 ## IV. Tools
 
 Some tools I use on a daily basis:
@@ -72,8 +70,6 @@ Some tools I use on a daily basis:
 - Figma, [Mermaid.js](https://mermaid-js.github.io/mermaid/#/) for diagrams
 
 - Google Calendar to schedule everything and set up reminder for note review
-
----
 
 ## V. Resources
 
