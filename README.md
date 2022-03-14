@@ -53,6 +53,10 @@ Following the roadmap
 
 - [PWAs](./notes/progressive-web-apps.md)
 
+### Infrasturcture
+
+- [Observability](./notes/Infrastructure/observability.md)
+
 ### UI Design
 
 #### [Visual Consistency](https://uxpin.medium.com/web-ui-design-for-the-human-eye-principles-of-visual-consistency-part-2-7b5d8b647602https://uxpin.medium.com/web-ui-design-for-the-human-eye-principles-of-visual-consistency-part-2-7b5d8b647602)
