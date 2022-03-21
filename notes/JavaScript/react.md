@@ -1,6 +1,8 @@
-# React
+# ReactJS
 
-Following the [React roadmap](https://roadmap.sh/react)
+Following
+- the [React roadmap](https://roadmap.sh/react)
+- [Intermediate React, V3 on FrontendMaster](https://frontendmasters.com/courses/intermediate-react-v3)
 
 ## Fundamental Topics
 
@@ -35,9 +37,7 @@ Following the [React roadmap](https://roadmap.sh/react)
     - `useEffect` accepts 2 parameters. The first one is a callback which runs **after the first render and after every update**.
     - If you pass an empty array `[]` as the second argument, it tells the `useEffect` function to fire on component render (componentWillMount). This is the only time it will fire.
 
-- Lists and keys
-
-- Composition v.s. inheritance
+- Lists and keys - You can use `map` when you want to render a list of items. Each item in a list should have a unique key.
 
 - Basic hooks
   - useState
@@ -50,3 +50,24 @@ Following the [React roadmap](https://roadmap.sh/react)
 ## [urql](https://formidable.com/open-source/urql/docs/) - GraphQL client in React
 
 - Caching - By default, urql cache every unique query you send and the data you get, so you won’t overload the server. It will automaticallu
+
+## Something Advanced ...
+
+### [Hooks](https://reactjs.org/docs/hooks-intro.html)
+
+#### useState
+
+- Think it as a simple container for states
+- Everytime you call the setXYZ functions returned by `useState`, it might kick off a re-rendering cycle if the state is changed
+
+#### useEffect
+
+- Use `useEffect` when you want to **schedule** something to happen after some conditions are fulfilled
+- The first parameter doesn't expect a Promise. You can either use `.then()` or call an async function
+- You can put the condition in the second parameter like below. Putting nothing makes the callback function gets executed when anything changes; empty array `[]` means the callback function will only be executed once ( = `componentDidMount`).
+
+  ```JavaScript
+  useEffect(() => {
+    //...
+  }, <condition>);
+  ```
