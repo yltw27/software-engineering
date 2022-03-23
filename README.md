@@ -30,10 +30,12 @@ Think of these questions before you are going to ask for PR review or when you a
 
 Following the roadmap
 
-### Programming Language
+### JavaScript and ...
 
 - [JavaScript, The New Hard Parts](./notes/JavaScript/the-new-hard-parts.md)
 - [Functional Programming](./notes/JavaScript/functional-programming.md)
+- [React](./notes/JavaScript/react.md)
+- [TypeScript](./notes/JavaScript/typescript.md)
 
 ### Developer 101
 
