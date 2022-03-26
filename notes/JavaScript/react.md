@@ -71,3 +71,65 @@ Following
     //...
   }, <condition>);
   ```
+
+### Code Splitting
+
+- Code splitting is a technique to load a part of the website at a time, or you can say it cuts down the bundle size to **reduce the time that the first page is rendered**
+- When your app is small, code splitting might be a bad idea as it will increase the network latency
+- Note: `lazy` and `Suspense` are not yet available for server-side rendering ([link](https://reactjs.org/docs/code-splitting.html#reactlazy)). To achieve code splitting in a server rendered app, you need to use [loadable](https://github.com/gregberge/loadable-components)
+
+```JavaScript
+import { lazy, Suspense } from "react";
+// import { Details } from './Details';
+
+const Details = lazy(() => import('./Details'));
+
+// ...
+return (
+  // ...
+  <Suspense fallback={<h2>Loading ...</h2>}>
+    <Router>
+      <Switch>
+        <Route path="...">
+          ...
+        </Route>
+        ...
+      </Switch>
+    </Router>
+  </Suspense>
+); 
+
+```
+
+- `lazy` turns the dynamic import (a promise) into a component
+- `Suspense` asks the browser "If you run into a lazy loading component, wait for it to be loaded." and you can set `fallback` as a prop of Suspense
+
+### Server Side Rendering (SSR)
+
+- Except for code splitting, server side rendering is another way to improve website performance. It's a technique that pre-renders on the server side and send the markup to client
+- SSR is not always the right thing to do, as you are adding the server time. You should use SSR only if you are sure the performance can be improved
+
+```JavaScript
+// in server/index.js
+
+import { renderToString } from 'react-dom';
+
+...
+
+app.use((req, res) => {
+  const staticContext = {};
+  const reactMarkup = (
+    <StaticRouter url={req.url} context={staticContext}>
+      <App />
+    </StaticRouter>
+  );
+
+  ...
+
+  res.send(renderToString(reactMarkup));
+});
+```
+
+### Redux
+
+### Testing
