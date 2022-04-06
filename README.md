@@ -36,6 +36,7 @@ Following the roadmap
 - [Functional Programming](./notes/JavaScript/functional-programming.md)
 - [React](./notes/JavaScript/react.md)
 - [TypeScript](./notes/JavaScript/typescript.md)
+- Preact
 
 ### Developer 101
 

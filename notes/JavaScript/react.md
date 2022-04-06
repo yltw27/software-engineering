@@ -58,9 +58,11 @@ Following
 - Hooks are functions that let you “hook into” React state and lifecycle features
 - Hooks are a way to reuse _stateful_ logic, not state itself. In fact, each _call_ to a Hook has a completely isolated state — so you can even use the same custom Hook twice in one component
 - When to use hooks? When you write a function component and realize you need to add some **state** to it
-- **Rules of hooks**
-  - Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions
-  - Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions or class components
+
+#### **Rules of hooks**
+
+- Only call Hooks **at the top level** before any early returns. Don’t call Hooks inside loops, conditions, or nested functions
+- Only call Hooks **from React function components or custom hooks**. Don’t call Hooks from regular JavaScript functions or class components
 
 #### useState
 
@@ -69,7 +71,7 @@ Following
 
 #### useEffect
 
-- Use `useEffect` when you want to **schedule** something to happen after some conditions are fulfilled
+- By using this Hook, you tell React that your component needs to do something **after render**. React will remember the function you passed, and call it later after performing the DOM updates
 - The first parameter doesn't expect a Promise. You can either use `.then()` or call an async function
 - You can put the condition in the second parameter like below. Putting nothing makes the callback function gets executed when anything changes; empty array `[]` means the callback function will only be executed once ( = `componentDidMount`).
 
@@ -78,6 +80,8 @@ Following
     //...
   }, <condition>);
   ```
+
+- You can return a function inside the first parameter (a callback function) of useEffect. React will run it when it is time to clean up (when the component unmounts)
 
 ### Code Splitting
 
