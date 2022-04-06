@@ -77,6 +77,8 @@ Some tools I use on a daily basis:
 
 - Google Calendar to schedule everything and set up reminder for note review
 
+- [asdf](http://asdf-vm.com/guide/getting-started.html#_1-install-dependencies) - A tool to manage node version across projects
+
 ## V. Resources
 
 ### Online Courses

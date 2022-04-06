@@ -55,9 +55,16 @@ Following
 
 ### [Hooks](https://reactjs.org/docs/hooks-intro.html)
 
+- Hooks are functions that let you “hook into” React state and lifecycle features
+- Hooks are a way to reuse _stateful_ logic, not state itself. In fact, each _call_ to a Hook has a completely isolated state — so you can even use the same custom Hook twice in one component
+- When to use hooks? When you write a function component and realize you need to add some **state** to it
+- **Rules of hooks**
+  - Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions
+  - Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions or class components
+
 #### useState
 
-- Think it as a simple container for states
+- A hook that allows you to preserve a local state between re-renders
 - Everytime you call the setXYZ functions returned by `useState`, it might kick off a re-rendering cycle if the state is changed
 
 #### useEffect
