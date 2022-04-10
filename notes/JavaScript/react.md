@@ -64,14 +64,32 @@ Following
 - Only call Hooks **at the top level** before any early returns. Don’t call Hooks inside loops, conditions, or nested functions
 - Only call Hooks **from React function components or custom hooks**. Don’t call Hooks from regular JavaScript functions or class components
 
-#### useState
+#### useState (a.k.a. State Hook)
 
 - A hook that allows you to preserve a local state between re-renders
 - Everytime you call the setXYZ functions returned by `useState`, it might kick off a re-rendering cycle if the state is changed
+- If the new state is computed using the previous state, you can pass a function to `setState`
+
+    ```jsx
+    const [ count, setCount ] = useState(0);
+    
+    //...
+    
+    <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
+    ```
+
+- If the initial value is the result of an expensive computation, you may provide a function so it will be executed only once
+    
+    ```jsx
+    const [state, setState] = useState(() => {
+      const initialState = someExpensiveComputation(props);
+      return initialState;
+    });
+    ```
 
 #### useEffect
 
-- By using this Hook, you tell React that your component needs to do something **after render**. React will remember the function you passed, and call it later after performing the DOM updates
+- By using this Hook, you tell React that your component needs to do something **after render**. React will remember the function you passed, and call it later after performing the DOM updates (i.e. after the render is committed to the screen)
 - The first parameter doesn't expect a Promise. You can either use `.then()` or call an async function
 - You can put the condition in the second parameter like below. Putting nothing makes the callback function gets executed when anything changes; empty array `[]` means the callback function will only be executed once ( = `componentDidMount`).
 
@@ -81,7 +99,97 @@ Following
   }, <condition>);
   ```
 
-- You can return a function inside the first parameter (a callback function) of useEffect. React will run it when it is time to clean up (when the component unmounts)
+- You should always declare a function needed by an effect inside `useEffect` as it’s difficult to remember which props or state are used by functions outside of the effect
+    
+    ```jsx
+    function Example({ someProp }) {
+      useEffect(() => {
+        function doSomething() {
+          console.log(someProp);
+        }
+    
+        doSomething();
+      }, [ someProp ]); // ✅ OK (our effect only uses `someProp`)
+    }
+    ```
+
+- `useEffect` can be used along with common side effects, like setting up event handlers. The function passed in useEffect fires after layout and paint so it won’t block the browser from updating the screen
+- The function passed to `useEffect` may return **a clean-up function**. The clean-up function runs before the component is removed from the UI to prevent memory leaks. Additionally, if a component renders multiple times (as they typically do), the previous effect is cleaned up before executing the next effect
+
+#### useContext
+
+- `useContext` is created to provide a better solution for this situation - when you want to pass a value from the top level to the one of the N child elements, you need to pass `props` all the way down
+
+  ```jsx
+  import { createContext, useContext } from React
+
+  const UserContext = createContext(/* default value */);
+
+  const LevelFive = () => {
+    const person = useContext(UserContext);
+  };
+
+  const ComponentX = () => {
+    const person = {
+      name: 'Jessica',
+      age: 18,
+    };
+
+    return (
+      <UserContext.Provider value={person}>
+        ...
+        <LevelTwo />
+        // LevelTwo is the great grandparent of LevelFive
+      </UserContext.Provider>
+    );
+  };
+  ```
+
+- Accepts a context object (the value returned from `React.createContext`) and returns the current context value for that context. The current context value is determined by the `value` prop of the nearest `<MyContext.Provider>` above the calling component in the tree
+- A component calling `useContext` will always re-render when the context value changes. If re-rendering the component is expensive, you can use `useMemo` instead
+
+#### useRef
+
+- Use this hook when you want a piece of information to survive through different renders
+- You can use `.current` to update the value
+
+  ```jsx
+  const numRef = useRef(0);
+
+  numRef.current++;
+  ```
+
+#### useReducer
+
+```jsx
+const [ currentState, func ] = useReducer(state, action);
+```
+
+- `useReducer` takes a state and an action as parameters, updates and returns the state in the end
+
+- Similar to Redux. It's a thin layer on top of `useState` that allows you to treat the state like a Redux store locally
+
+- In React, a lot of errors come from the wrong set up of states. Using `useReducer` is a way to keep all the variants/logic in the same place so it's more maintainable and easier to unit test
+
+#### useMemo
+
+```jsx
+const fibo = useMemo(() => fibonacci(num), [ num ]);
+```
+
+- Put **expensive computation** in `useMemo`. You can set some dependency as the second parameter so it will only compute again if the dependency is changed
+
+#### useCallback
+
+- `useCallback` is related to `useMemo` and it's actually implemented using `useMemo`
+
+- The `useCallback` hook takes in a function and returns a memoized version of the callback only when one of the dependencies are called
+
+#### useLayoutEffect
+
+- It has the same signature with `useEffect` but **it fires immediately after DOM is updated (rendering finishes)** and before paint which could block visual updates (useEffect fire the function passed in after paint)
+
+- This hook is usually used with animation (when you need to make sure the effect will happen punctually)
 
 ### Code Splitting
 
