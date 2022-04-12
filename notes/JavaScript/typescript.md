@@ -66,4 +66,7 @@
 ### Migration
 
 - Rename your `.js/.jsx` files to `.ts/.tsx`
- 
+
+## Some tips
+
+- type v.s. interface: Rule of thumb: If it’s possible, always use interface
