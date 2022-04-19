@@ -34,11 +34,11 @@ Following the roadmap
 
 - [JavaScript, The New Hard Parts](./notes/JavaScript/the-new-hard-parts.md)
 - [React](./notes/JavaScript/react.md)
+- [TypeScript](./notes/JavaScript/typescript.md)
 
 Next:
 - Preact
 - [JavaScript Performance](https://frontendmasters.com/courses/web-performance/)
-- [TypeScript](./notes/JavaScript/typescript.md)
 - [Full stack fundamental](https://frontendmasters.com/courses/fullstack-v2/)
 - [Functional Programming](./notes/JavaScript/functional-programming.md)
 
