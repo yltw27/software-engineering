@@ -44,6 +44,7 @@ Next:
 
 ### Developer 101
 
+- [Web development basics](./notes/web-development.md)
 - Learn how to use Chrome DevTools [Note](./notes/developer101.md)
 
 ### Web Security Knowledge
