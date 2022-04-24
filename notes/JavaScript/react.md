@@ -3,6 +3,8 @@
 Following
 - the [React roadmap](https://roadmap.sh/react)
 - [Intermediate React, V3 on FrontendMaster](https://frontendmasters.com/courses/intermediate-react-v3)
+- [How to learn React.js](https://www.robinwieruch.de/learn-react-js/)
+- Check [Reddit](https://www.reddit.com/r/reactjs/) for the most recent discussions about React!
 
 ## Fundamental Topics
 
@@ -308,3 +310,10 @@ class ErrorBoundary extends React.Component {
     expect(result).toHaveLength(0);
   );
   ```
+
+---
+
+## Exercises
+
+- [Getting started with create-react-app](https://create-react-app.dev/docs/getting-started/)
+  - Configuration tools like Babel and webpack will be preconfigured and hidden

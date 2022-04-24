@@ -32,11 +32,12 @@ Following the roadmap
 
 ### JavaScript and ...
 
-- [JavaScript, The New Hard Parts](./notes/JavaScript/the-new-hard-parts.md)
-- [React](./notes/JavaScript/react.md)
-- [TypeScript](./notes/JavaScript/typescript.md)
+1. [JavaScript, The New Hard Parts](./notes/JavaScript/the-new-hard-parts.md)
+2. [React](./notes/JavaScript/react.md)
+3. [TypeScript](./notes/JavaScript/typescript.md)
 
 Next:
+- Learn a state management library (e.g. Redux, zustand)
 - Preact
 - [JavaScript Performance](https://frontendmasters.com/courses/web-performance/)
 - [Full stack fundamental](https://frontendmasters.com/courses/fullstack-v2/)
