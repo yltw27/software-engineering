@@ -311,6 +311,45 @@ class ErrorBoundary extends React.Component {
   );
   ```
 
+## [Event handler](https://www.robinwieruch.de/react-event-handler/)
+
+```jsx
+const Search = () => {
+  const handleChange = (event: any) => {
+    console.log(event.target.value);
+  };
+
+  return (
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" onChange={handleChange} />
+    </div>
+  );
+}
+```
+
+- You can create event handlers in React and pass it to a HTML element's attribute (e.g. onClick, onChange)
+
+```jsx
+function App() {
+  const [text, setText] = React.useState('');
+
+  function handleChange(event) {
+    setText(event.target.value);
+  }
+
+  return (
+    <div>
+      <input type="text" onChange={handleChange} />
+
+      {text}
+    </div>
+  );
+}
+```
+
+- The first parameter of any event handler function will always be the actual **synthetic event** from React which essentially encapsulates the native HTML event and adds some functionality on top of it
+
 ---
 
 ## Exercises
